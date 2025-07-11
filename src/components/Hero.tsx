@@ -42,7 +42,10 @@ const Hero = () => {
         loop
         playsInline
       >
-        <source src="/hero-bgF.mp4" type="video/mp4" />
+        <source
+          src="https://res.cloudinary.com/dr0m0fevm/video/upload/v1752198556/hero-bg8_1_bsyb99.mov"
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 bg-black opacity-35 z-10"></div>
