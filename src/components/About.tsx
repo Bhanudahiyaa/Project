@@ -1,22 +1,41 @@
 import React from "react";
 import { GraduationCap, User } from "lucide-react";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <section id="about">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl font-bold mb-4"
+          >
             <span className="text-metallic animate-slide-up">About Me</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-gray-500 to-gray-600 mx-auto rounded-full"></div>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-24 h-1 bg-gradient-to-r from-gray-500 to-gray-600 mx-auto rounded-full"
+          ></motion.div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column */}
           <div className="space-y-6 w-full">
             {/* Who I Am */}
-            <div className="flex items-start space-x-4 group">
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex items-start space-x-4 group"
+            >
               <div className="p-3 bg-gray-700/20 rounded-lg group-hover:bg-gray-600/30 transition-colors duration-300">
                 <User className="w-6 h-6 text-gray-400" />
               </div>
@@ -31,10 +50,16 @@ const About = () => {
                   only functional but also intuitive and enjoyable to use.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Education */}
-            <div className="flex items-start space-x-4 ">
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex items-start space-x-4 "
+            >
               <div className="p-3 bg-gray-600/20 rounded-lg group-hover:bg-gray-500/30 transition-colors duration-300">
                 <GraduationCap className="w-6 h-6 text-gray-400" />
               </div>
@@ -52,11 +77,17 @@ const About = () => {
                   <p className="text-sm text-gray-500">2023–2027</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column: Visual Element */}
-          <div className="relative w-full">
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative w-full"
+          >
             <div className="bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-transparent via-transparent to-gray-800 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50">
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-white mb-2 animate-slide-up">
@@ -72,7 +103,7 @@ const About = () => {
               </div>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gray-600/20 via-gray-500/20 to-gray-700/20 -z-10 blur-xl animate-pulse" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

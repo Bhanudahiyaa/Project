@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Code, Database, Palette, Globe, Server, Wrench } from "lucide-react";
+import { motion } from "framer-motion";
 
 type Skill = {
   name: string;
@@ -78,7 +79,7 @@ const Skills = () => {
   const renderSkills = () => {
     if (activeCategory === "all") {
       return (
-        <div className="space-y-12">
+        <div className="space-y-10">
           {Object.entries(skillsByCategory).map(([category, skills]) => {
             const categoryData = skillCategories.find(
               cat => cat.id === category
@@ -86,7 +87,7 @@ const Skills = () => {
             const Icon = categoryData?.icon;
 
             return (
-              <div key={category} className="space-y-6">
+              <div key={category} className="space-y-4">
                 <h3 className="text-xl font-semibold text-gray-300 capitalize flex items-center space-x-3">
                   {Icon &&
                     React.createElement(Icon, {
@@ -96,14 +97,18 @@ const Skills = () => {
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {skills.map((skill, index) => (
-                    <div
+                    <motion.div
                       key={skill.name}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
                       className="relative group bg-gray-900/50 backdrop-blur-sm rounded-xl px-5 py-3 border border-gray-800/50 hover:border-gray-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-gray-200/10 hover:-translate-y-1 cursor-pointer"
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
                       <div className="flex items-center space-x-3">
                         <div
-                          className={`w-8 h-8 ${skill.color} rounded-lg flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300`}
+                          className={`w-5 h-5 ${skill.color} rounded-lg flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300`}
                         >
                           {skill.name.charAt(0)}
                         </div>
@@ -112,7 +117,7 @@ const Skills = () => {
                         </span>
                       </div>
                       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-gray-600/10 via-gray-500/10 to-gray-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm"></div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -125,8 +130,12 @@ const Skills = () => {
     return (
       <div className="flex flex-wrap gap-3 justify-center">
         {filteredSkills.map((skill, index) => (
-          <div
+          <motion.div
             key={skill.name}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.05 }}
             className="relative group bg-gray-900/50 backdrop-blur-sm rounded-xl px-6 py-3 border border-gray-800/50 hover:border-gray-600/50 transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/10 hover:-translate-y-1 cursor-pointer"
             style={{ animationDelay: `${index * 50}ms` }}
           >
@@ -141,7 +150,7 @@ const Skills = () => {
               </span>
             </div>
             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-gray-600/10 via-gray-500/10 to-gray-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm"></div>
-          </div>
+          </motion.div>
         ))}
       </div>
     );
@@ -151,10 +160,22 @@ const Skills = () => {
     <section id="skills" className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl font-bold mb-4"
+          >
             <span className="text-metallic">Skills & Technologies</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-gray-500 to-gray-600 mx-auto rounded-full"></div>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-24 h-1 bg-gradient-to-r from-gray-500 to-gray-600 mx-auto rounded-full"
+          ></motion.div>
         </div>
 
         {/* Category Filter */}
@@ -186,6 +207,86 @@ const Skills = () => {
               Continuously learning and exploring new technologies
             </span>
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          </div>
+        </div>
+
+        {/* Behind the Scenes */}
+        <div className="mt-20 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl font-bold text-white mb-4"
+          >
+            Behind the Scenes
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-24 h-1 bg-gradient-to-r from-gray-500 to-gray-600 mx-auto rounded-full"
+          />
+          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            This portfolio is crafted using modern technologies and deployment
+            workflows to ensure performance, responsiveness, and
+            maintainability.
+          </p>
+
+          {/* Timeline */}
+          <div className="mt-16 border-l-2 border-gray-700 pl-6 space-y-10 max-w-2xl mx-auto text-left">
+            {[
+              {
+                title: "Tech Stack",
+                description:
+                  "Built using React, TypeScript, and Tailwind CSS for a fast, responsive UI.",
+              },
+              {
+                title: "Animations",
+                description:
+                  "Framer Motion enables scroll animations, hover effects, and smooth transitions.",
+              },
+              {
+                title: "Deployment",
+                description:
+                  "Automatically deployed using Vercel with GitHub CI/CD pipeline.",
+              },
+              {
+                title: "Optimizations",
+                description:
+                  "Responsive design, image compression, and lazy loading for fast performance.",
+              },
+            ].map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative group"
+              >
+                <div className="absolute -left-[13px] top-1.5 w-4 h-4 bg-purple-500 rounded-full border-4 border-gray-900" />
+                <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 hover:shadow-md transition">
+                  <p className="text-lg font-semibold text-white mb-1">
+                    {step.title}
+                  </p>
+                  <p className="text-sm text-gray-400">{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* GitHub Link */}
+          <div className="mt-10 text-center">
+            <a
+              href="https://github.com/Bhanudahiyaa/Project"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-800 text-white rounded-full border border-gray-700 hover:scale-105 transition"
+            >
+              View Source on GitHub
+            </a>
           </div>
         </div>
       </div>

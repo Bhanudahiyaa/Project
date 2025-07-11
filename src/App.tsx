@@ -7,6 +7,7 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import BottomNavigation from "./components/BottomNavigation";
 import SplashCursor from "./components/SplashCursor";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   useEffect(() => {
@@ -56,7 +57,9 @@ function App() {
 
   return (
     <>
-      <SplashCursor />
+      <ErrorBoundary>
+        <SplashCursor />
+      </ErrorBoundary>
 
       <div className="bg-black text-white min-h-screen overflow-x-hidden">
         {/* Animated background */}

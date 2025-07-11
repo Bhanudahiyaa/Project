@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Mail,
   Linkedin,
@@ -7,6 +8,7 @@ import {
   MessageCircle,
   User,
   MapPin,
+  CheckCircle,
 } from "lucide-react";
 
 const Contact = () => {
@@ -16,6 +18,7 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -35,6 +38,8 @@ const Contact = () => {
 
     setFormData({ name: "", email: "", message: "" });
     setIsSubmitting(false);
+    setIsSuccess(true);
+    setTimeout(() => setIsSuccess(false), 3000);
   };
 
   const contactInfo = [
@@ -59,15 +64,27 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="pt-1 pb-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-white">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl font-bold mb-4 text-white"
+          >
             <span className="text-metallic animate-slide-up">
               Let's Connect
             </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-gray-500 to-gray-600 mx-auto rounded-full"></div>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-24 h-1 bg-gradient-to-r from-gray-500 to-gray-600 mx-auto rounded-full"
+          ></motion.div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let’s discuss your next project
             and create something amazing together.
@@ -76,7 +93,13 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
             <div>
               <h3 className="text-2xl font-bold text-white mb-6 animate-slide-up">
                 Get in Touch
@@ -117,10 +140,16 @@ const Contact = () => {
               <MapPin className="w-5 h-5" />
               <span>Delhi, India</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50"
+          >
             <div className="flex items-center space-x-3 mb-8">
               <MessageCircle className="w-6 h-6 text-gray-400" />
               <h3 className="text-2xl font-bold text-white animate-slide-up">
@@ -184,8 +213,20 @@ const Contact = () => {
                 )}
                 <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
               </button>
+              {isSuccess && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.4 }}
+                  className="mt-4 flex items-center justify-center space-x-2 text-green-400 text-sm font-medium"
+                >
+                  <CheckCircle className="w-4 h-4" />
+                  <span>Message sent successfully!</span>
+                </motion.div>
+              )}
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

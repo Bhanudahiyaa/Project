@@ -125,9 +125,9 @@ export default function SplashCursor({
       }
 
       if (!gl) {
-        throw new Error("Unable to initialize WebGL.");
+        console.warn("WebGL not supported or failed to initialize.");
+        return null;
       }
-
       const isWebGL2 = "drawBuffers" in gl;
 
       let supportLinearFiltering = false;

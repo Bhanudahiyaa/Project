@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Lightbulb, Puzzle, Users, Target } from "lucide-react";
 
 type DriveItem = {
@@ -41,13 +42,25 @@ const WhatDrivesMe = () => {
   ];
 
   return (
-    <section id="drives" className="py-20">
+    <section id="drives" className="py-1">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl font-bold mb-4"
+          >
             <span className="text-metallic">What Drives Me</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-gray-500 to-gray-600 mx-auto rounded-full"></div>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="w-24 h-1 bg-gradient-to-r from-gray-500 to-gray-600 mx-auto rounded-full"
+          ></motion.div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
             The core values and motivations that fuel my passion for development
             and drive me to create exceptional digital experiences.
@@ -57,8 +70,12 @@ const WhatDrivesMe = () => {
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {drives.map((drive, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50 hover:border-gray-600/50 transition-all duration-500 hover:shadow-2xl hover:shadow-gray-500/20 hover:-translate-y-2"
             >
               {/* Icon */}
@@ -82,16 +99,22 @@ const WhatDrivesMe = () => {
 
               {/* Animated background */}
               <div className="absolute inset-0 bg-gradient-to-r from-gray-600/5 via-gray-500/5 to-gray-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl -z-10"></div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Quote */}
         <div className="mt-16 text-center">
-          <blockquote className="text-xl italic text-gray-400 max-w-3xl mx-auto">
+          <motion.blockquote
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-xl italic text-gray-400 max-w-3xl mx-auto"
+          >
             "Great things are not done by impulse, but by a series of small
             things brought together."
-          </blockquote>
+          </motion.blockquote>
           <cite className="text-gray-500 text-sm mt-2 block">
             — Vincent van Gogh
           </cite>

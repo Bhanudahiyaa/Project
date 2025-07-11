@@ -64,9 +64,9 @@ const BottomNavigation = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-6">
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-3">
       <div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-transparent via-transparent to-gray-800 backdrop-blur-md border border-gray-900/50 rounded-2xl px-8 py-4 shadow-2xl">
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-5">
           {/* Navigation Items */}
           {navItems.map(item => (
             <button
@@ -79,7 +79,7 @@ const BottomNavigation = () => {
               }`}
             >
               <item.icon
-                className={`w-5 h-5 transition-all duration-300 ${
+                className={`w-4 h-4 transition-all duration-300 ${
                   activeSection === item.id
                     ? "text-gray-300"
                     : "group-hover:text-gray-300"
