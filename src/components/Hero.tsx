@@ -70,59 +70,62 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-30">
-        {/* Greeting */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
-          <span className="text-metallic animate-metallic-shine ">
-            Hey, I'm Bhanu
-          </span>
-          <span className="wave-emoji ml-4 inline-block animate-wave">👋🏻</span>
-        </h1>
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
+        <div className="flex flex-col items-center justify-center gap-12 text-center">
+          <div className="w-full text-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 animate-slide-up">
+              <span className="text-metallic animate-metallic-shine">
+                Hey, I'm Bhanu
+              </span>
+              <span className="wave-emoji ml-4 inline-block animate-wave">
+                👋🏻
+              </span>
+            </h1>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up-delay-2">
-          <button
-            onClick={scrollToProjects}
-            className="px-8 py-4 btn-metallic rounded-full font-semibold text-white hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 hover:scale-105 group"
-          >
-            View Projects
-            <ArrowDown className="inline-block ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
-          </button>
-          <button
-            onClick={scrollToContact}
-            className="px-8 py-4 border-2 border-gray-500/50 rounded-full font-semibold text-gray-300 hover:bg-gray-500/10 hover:border-gray-400 transition-all duration-300 hover:scale-105"
-          >
-            Let's Connect
-          </button>
-        </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-slide-up-delay-2">
+              <button
+                onClick={scrollToProjects}
+                className="px-8 py-4 btn-metallic rounded-full font-semibold text-white hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 hover:scale-105 group"
+              >
+                View Projects
+                <ArrowDown className="inline-block ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+              </button>
+              <button
+                onClick={scrollToContact}
+                className="px-8 py-4 border-2 border-gray-500/50 rounded-full font-semibold text-gray-300 hover:bg-gray-500/10 hover:border-gray-400 transition-all duration-300 hover:scale-105"
+              >
+                Let's Connect
+              </button>
+            </div>
 
-        {/* Social Links */}
-        <div className="flex justify-center space-x-6 animate-slide-up-delay-3">
-          <a
-            href="mailto:bhanudahiya8@gmail.com"
-            className="p-3 rounded-full bg-gray-900/50 border border-gray-700 hover:border-gray-500 hover:bg-gray-500/10 transition-all duration-300 hover:scale-110"
-            aria-label="Email"
-          >
-            <Mail className="w-6 h-6" />
-          </a>
-          <a
-            href="https://linkedin.com/in/bhanupratap1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-gray-900/50 border border-gray-700 hover:border-gray-500 hover:bg-gray-500/10 transition-all duration-300 hover:scale-110"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="w-6 h-6" />
-          </a>
-          <a
-            href="https://github.com/bhanudahiyaa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-gray-900/50 border border-gray-700 hover:border-gray-500 hover:bg-gray-500/10 transition-all duration-300 hover:scale-110"
-            aria-label="GitHub"
-          >
-            <Github className="w-6 h-6" />
-          </a>
+            <div className="flex justify-center space-x-6 animate-slide-up-delay-3">
+              <a
+                href="mailto:bhanudahiya8@gmail.com"
+                className="p-3 rounded-full bg-gray-900/50 border border-gray-700 hover:border-gray-500 hover:bg-gray-500/10 transition-all duration-300 hover:scale-110"
+                aria-label="Email"
+              >
+                <Mail className="w-6 h-6" />
+              </a>
+              <a
+                href="https://linkedin.com/in/bhanupratap1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gray-900/50 border border-gray-700 hover:border-gray-500 hover:bg-gray-500/10 transition-all duration-300 hover:scale-110"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a
+                href="https://github.com/bhanudahiyaa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gray-900/50 border border-gray-700 hover:border-gray-500 hover:bg-gray-500/10 transition-all duration-300 hover:scale-110"
+                aria-label="GitHub"
+              >
+                <Github className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 

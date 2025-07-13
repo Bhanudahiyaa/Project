@@ -46,7 +46,7 @@ const BottomNavigation = () => {
   ];
 
   const socialLinks = [
-    { icon: FileText, href: "#", label: "Resume" },
+    //{ icon: FileText, href: "#", label: "Resume" },
     { icon: Github, href: "https://github.com/bhanudahiyaa", label: "GitHub" },
     { icon: Twitter, href: "#", label: "Twitter" },
     {

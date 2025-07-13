@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Code, Database, Palette, Globe, Server, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
+import * as SiIcons from "react-icons/si";
 
 type Skill = {
   name: string;
@@ -19,7 +20,8 @@ const Skills = () => {
   const skillCategories: SkillCategory[] = [
     { id: "all", name: "All Skills", icon: Globe },
     { id: "languages", name: "Languages", icon: Code },
-    { id: "frameworks", name: "Frameworks", icon: Server },
+    { id: "frontend", name: "Frontend", icon: Server },
+    { id: "backend", name: "Backend", icon: Server },
     { id: "databases", name: "Databases", icon: Database },
     { id: "tools", name: "Tools", icon: Wrench },
     { id: "design", name: "Design", icon: Palette },
@@ -30,27 +32,40 @@ const Skills = () => {
       { name: "C", color: "bg-gray-600" },
       { name: "C++", color: "bg-gray-700" },
       { name: "JavaScript", color: "bg-gray-500" },
+      { name: "TypeScript", color: "bg-gray-600" },
+      { name: "Python", color: "bg-gray-700" },
     ],
-    frameworks: [
+    frontend: [
       { name: "Bootstrap", color: "bg-gray-800" },
-      { name: "Tailwind CSS", color: "bg-gray-600" },
-      { name: "React.js", color: "bg-gray-700" },
-      { name: "Express.js", color: "bg-gray-800" },
+      { name: "TailwindCSS", color: "bg-gray-600" },
+      { name: "React", color: "bg-gray-700" },
+      { name: "Vue", color: "bg-gray-800" },
+      { name: "Next.js", color: "bg-gray-700" },
       { name: "Three.js", color: "bg-gray-500" },
       { name: "GSAP", color: "bg-gray-600" },
+      { name: "Framer Motion", color: "bg-gray-600" },
       { name: "Chart.js", color: "bg-gray-700" },
-      { name: "Node.js", color: "bg-gray-700" },
-      { name: "Auth.js", color: "bg-gray-700" },
-      { name: "Swiper.js", color: "bg-gray-700" },
-      { name: "Locomotive.js", color: "bg-gray-700" },
-      { name: "Next.js", color: "bg-gray-700" },
+      { name: "Swiper", color: "bg-gray-700" },
+      { name: "Locomotive", color: "bg-gray-700" },
+    ],
+    backend: [
+      { name: "Node.js", color: "bg-gray-800" },
+      { name: "Express", color: "bg-gray-700" },
+      { name: "GraphQL", color: "bg-gray-500" },
+      { name: "REST APIs", color: "bg-gray-600" },
+      { name: "FastAPI", color: "bg-gray-600" },
+      { name: "Socket.io", color: "bg-gray-700" },
+      { name: "Auth", color: "bg-gray-700" },
+      { name: "Streamlit", color: "bg-gray-700" },
     ],
     databases: [
       { name: "MongoDB", color: "bg-gray-800" },
       { name: "PostgreSQL", color: "bg-gray-700" },
-      { name: "Mongoose", color: "bg-gray-600" },
+      { name: "MySQL", color: "bg-gray-600" },
       { name: "Prisma", color: "bg-gray-800" },
       { name: "Firebase", color: "bg-gray-700" },
+      { name: "SupaBase", color: "bg-gray-800" },
+      { name: "SQLite", color: "bg-gray-700" },
     ],
     tools: [
       { name: "GitHub", color: "bg-gray-900" },
@@ -59,14 +74,16 @@ const Skills = () => {
       { name: "Google Auth", color: "bg-gray-700" },
       { name: "ZOD", color: "bg-gray-700" },
       { name: "Postman", color: "bg-gray-700" },
+      { name: "Jest", color: "bg-gray-700" },
     ],
     design: [
       { name: "Figma", color: "bg-gray-600" },
       { name: "Adobe XD", color: "bg-gray-700" },
-      { name: "Framer", color: "bg-gray-600" },
       { name: "PapaParse", color: "bg-gray-700" },
       { name: "AntDesign", color: "bg-gray-700" },
       { name: "Axios", color: "bg-gray-700" },
+      { name: "ShadCN", color: "bg-gray-600" },
+      { name: "Material UI", color: "bg-gray-700" },
     ],
   };
 
@@ -79,7 +96,7 @@ const Skills = () => {
   const renderSkills = () => {
     if (activeCategory === "all") {
       return (
-        <div className="space-y-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Object.entries(skillsByCategory).map(([category, skills]) => {
             const categoryData = skillCategories.find(
               cat => cat.id === category
@@ -87,36 +104,74 @@ const Skills = () => {
             const Icon = categoryData?.icon;
 
             return (
-              <div key={category} className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-300 capitalize flex items-center space-x-3">
+              <div
+                key={category}
+                className="space-y-4 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
+              >
+                <h3 className="text-white font-semibold flex items-center text-lg">
                   {Icon &&
                     React.createElement(Icon, {
-                      className: "w-5 h-5 text-gray-400",
+                      className: "w-5 h-5 text-white mr-3",
                     })}
-                  <span>{category}</span>
+                  <span>{categoryData?.name || category}</span>
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {skills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      variants={{
+                        initial: { opacity: 0, scale: 0.8, y: 20 },
+                        animate: {
+                          opacity: 1,
+                          scale: 1,
+                          y: 0,
+                          transition: {
+                            type: "spring",
+                            stiffness: 100,
+                            damping: 10,
+                          },
+                        },
+                      }}
+                      initial="initial"
+                      whileInView="animate"
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className="relative group bg-gray-900/50 backdrop-blur-sm rounded-xl px-5 py-3 border border-gray-800/50 hover:border-gray-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-gray-200/10 hover:-translate-y-1 cursor-pointer"
-                      style={{ animationDelay: `${index * 50}ms` }}
+                      whileHover={{
+                        scale: 1.05,
+                        y: -2,
+                        transition: {
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 10,
+                        },
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white border border-white/20 hover:from-blue-500/30 hover:to-purple-500/30 transition-all duration-300 cursor-pointer px-3 py-1.5 text-sm font-medium rounded-full"
                     >
-                      <div className="flex items-center space-x-3">
-                        <div
-                          className={`w-5 h-5 ${skill.color} rounded-lg flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300`}
-                        >
-                          {skill.name.charAt(0)}
-                        </div>
-                        <span className="text-gray-300 group-hover:text-white transition-colors duration-300 font-medium">
-                          {skill.name}
-                        </span>
-                      </div>
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-gray-600/10 via-gray-500/10 to-gray-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm"></div>
+                      <motion.span
+                        className="flex items-center gap-2"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        <>
+                          {SiIcons[
+                            `Si${skill.name.replace(/[^a-zA-Z]/g, "")}`
+                          ] && (
+                            <span>
+                              {React.createElement(
+                                SiIcons[
+                                  `Si${skill.name.replace(/[^a-zA-Z]/g, "")}`
+                                ],
+                                {
+                                  className:
+                                    "w-4 h-4 text-white opacity-80 group-hover:text-white transition duration-300",
+                                }
+                              )}
+                            </span>
+                          )}
+                          <span>{skill.name}</span>
+                        </>
+                      </motion.span>
                     </motion.div>
                   ))}
                 </div>
@@ -132,24 +187,51 @@ const Skills = () => {
         {filteredSkills.map((skill, index) => (
           <motion.div
             key={skill.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={{
+              initial: { opacity: 0, scale: 0.8, y: 20 },
+              animate: {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                transition: {
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 10,
+                },
+              },
+            }}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="relative group bg-gray-900/50 backdrop-blur-sm rounded-xl px-6 py-3 border border-gray-800/50 hover:border-gray-600/50 transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/10 hover:-translate-y-1 cursor-pointer"
-            style={{ animationDelay: `${index * 50}ms` }}
+            whileHover={{
+              scale: 1.05,
+              y: -2,
+              transition: { type: "spring", stiffness: 400, damping: 10 },
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white border border-white/20 hover:from-blue-500/30 hover:to-purple-500/30 transition-all duration-300 cursor-pointer px-3 py-1.5 text-sm font-medium rounded-full"
           >
-            <div className="flex items-center space-x-3">
-              <div
-                className={`w-8 h-8 ${skill.color} rounded-lg flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300`}
-              >
-                {skill.name.charAt(0)}
-              </div>
-              <span className="text-gray-300 group-hover:text-white transition-colors duration-300 font-medium">
-                {skill.name}
-              </span>
-            </div>
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-gray-600/10 via-gray-500/10 to-gray-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm"></div>
+            <motion.span
+              className="flex items-center gap-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.05 }}
+            >
+              <>
+                {SiIcons[`Si${skill.name.replace(/[^a-zA-Z]/g, "")}`] && (
+                  <span>
+                    {React.createElement(
+                      SiIcons[`Si${skill.name.replace(/[^a-zA-Z]/g, "")}`],
+                      {
+                        className:
+                          "w-4 h-4 text-white opacity-80 group-hover:text-white transition duration-300",
+                      }
+                    )}
+                  </span>
+                )}
+                <span>{skill.name}</span>
+              </>
+            </motion.span>
           </motion.div>
         ))}
       </div>

@@ -71,6 +71,7 @@ function App() {
 
         <main>
           <Hero />
+
           <About />
           <Projects />
           <WhatDrivesMe />
