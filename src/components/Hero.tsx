@@ -48,7 +48,7 @@ const Hero = () => {
         />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute inset-0 bg-black opacity-35 z-10"></div>
+      <div className="absolute inset-0 bg-black opacity-75 z-10"></div>
       <div
         ref={heroRef}
         className="absolute inset-0 transition-all duration-300 z-20"
