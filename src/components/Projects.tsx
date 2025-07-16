@@ -15,6 +15,8 @@ const Projects = () => {
       githubUrl: "https://lnkd.in/eCiA9bf7",
       status: "Live",
       gradient: "from-gray-300 to-gray-800",
+      image:
+        "../../public/images/projects/Screenshot 2025-07-17 at 03.59.03.png",
     },
     {
       title: "📈 LedgerIQ",
@@ -31,6 +33,8 @@ const Projects = () => {
       githubUrl: "https://github.com/Bhanudahiyaa/Ledger-uwu",
       status: "Live",
       gradient: "from-gray-300 to-gray-700",
+      image:
+        "../../public/images/projects/Screenshot 2025-07-17 at 03.58.39.png",
     },
   ];
 
@@ -51,6 +55,7 @@ const Projects = () => {
       githubUrl: "https://github.com/Bhanudahiyaa/Call2Code",
       status: "Live",
       gradient: "from-gray-300 to-gray-600",
+      image: "../../public/images/projects/Marketpulse.png",
     },
     {
       title: "🚀 The Cultural Hub",
@@ -61,6 +66,7 @@ const Projects = () => {
       githubUrl: "",
       status: "Paused",
       gradient: "from-gray-300 to-gray-900",
+      image: "../../public/images/projects/sih.png",
     },
   ];
 
@@ -129,25 +135,11 @@ const Projects = () => {
 
               {/* Card Body */}
               <div className="p-8">
-                {/* Title */}
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-white">
-                    {project.title}
-                  </h3>
-                  <div className="flex items-center space-x-2">
-                    {project.status === "Paused" ? (
-                      <>
-                        <Pause className="w-4 h-4 text-yellow-400" />
-                        <span className="text-yellow-400 text-sm">Paused</span>
-                      </>
-                    ) : (
-                      <>
-                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                        <span className="text-green-400 text-sm">Live</span>
-                      </>
-                    )}
-                  </div>
-                </div>
+                <img
+                  src={project.image}
+                  alt={`${project.title} Screenshot`}
+                  className="mb-4 w-full h-full object-cover rounded-lg opacity-80"
+                />
 
                 {/* Description */}
                 <p className="text-gray-400 mb-6">{project.description}</p>

@@ -8,6 +8,8 @@ import {
   Github,
   Linkedin,
   Twitter,
+  Banana,
+  Network,
 } from "lucide-react";
 
 const BottomNavigation = () => {
@@ -40,8 +42,8 @@ const BottomNavigation = () => {
   const navItems = [
     { id: "home", label: "HOME", icon: Home },
     { id: "about", label: "ABOUT", icon: User },
-    { id: "projects", label: "WORK", icon: Briefcase },
-    { id: "skills", label: "SKILLS", icon: FileText },
+    { id: "projects", label: "PROJECTS", icon: Banana },
+    { id: "skills", label: "SKILLS", icon: Network },
     { id: "contact", label: "CONTACT", icon: Mail },
   ];
 
@@ -66,13 +68,13 @@ const BottomNavigation = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-3">
       <div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-transparent via-transparent to-gray-800 backdrop-blur-md border border-gray-900/50 rounded-2xl px-8 py-4 shadow-2xl">
-        <div className="flex items-center space-x-5">
+        <div className="flex items-center space-x-3">
           {/* Navigation Items */}
           {navItems.map(item => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`flex flex-col items-center space-y-1 px-3 py-2 rounded-xl transition-all duration-300 group ${
+              className={`flex flex-col items-center space-y-1 px-3 py-1 rounded-xl transition-all duration-300 group ${
                 activeSection === item.id
                   ? "text-white bg-gradient-to-r from-gray-700/20 to-gray-600/20 border border-gray-500/30"
                   : "text-gray-400 hover:text-white hover:bg-gray-900/50"

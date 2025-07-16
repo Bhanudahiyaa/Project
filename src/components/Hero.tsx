@@ -75,7 +75,7 @@ const Hero = () => {
           <div className="w-full text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 animate-slide-up">
               <span className="text-metallic animate-metallic-shine">
-                Hey, I'm Bhanu
+                Hi I'm Bhanu
               </span>
               <span className="wave-emoji ml-4 inline-block animate-wave">
                 👋🏻
