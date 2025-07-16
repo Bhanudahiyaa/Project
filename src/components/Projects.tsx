@@ -16,7 +16,7 @@ const Projects = () => {
       status: "Live",
       gradient: "from-gray-300 to-gray-800",
       image:
-        "../../public/images/projects/Screenshot 2025-07-17 at 03.59.03.png",
+        "https://res.cloudinary.com/dr0m0fevm/image/upload/v1752707054/Screenshot_2025-07-17_at_03.59.03_tes7rf.png",
     },
     {
       title: "📈 LedgerIQ",
@@ -34,7 +34,7 @@ const Projects = () => {
       status: "Live",
       gradient: "from-gray-300 to-gray-700",
       image:
-        "../../public/images/projects/Screenshot 2025-07-17 at 03.58.39.png",
+        "https://res.cloudinary.com/dr0m0fevm/image/upload/v1752707058/Screenshot_2025-07-17_at_03.58.39_xairve.png",
     },
   ];
 
@@ -55,7 +55,8 @@ const Projects = () => {
       githubUrl: "https://github.com/Bhanudahiyaa/Call2Code",
       status: "Live",
       gradient: "from-gray-300 to-gray-600",
-      image: "../../public/images/projects/Marketpulse.png",
+      image:
+        "https://res.cloudinary.com/dr0m0fevm/image/upload/v1752707067/Screenshot_2025-07-17_at_03.58.06_kthjpy.png",
     },
     {
       title: "🚀 The Cultural Hub",
@@ -66,7 +67,8 @@ const Projects = () => {
       githubUrl: "",
       status: "Paused",
       gradient: "from-gray-300 to-gray-900",
-      image: "../../public/images/projects/sih.png",
+      image:
+        "https://res.cloudinary.com/dr0m0fevm/image/upload/v1752706771/Screenshot_2025-07-17_at_03.52.48_amnn4p.png",
     },
   ];
 
